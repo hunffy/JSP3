@@ -1,3 +1,6 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.Date"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -72,5 +75,55 @@
 	<c:set var="sum" value="${sum+i}" />
 </c:forEach>
 list 객체의 요소의 합: ${sum}
+
+<h3>forEach 태그를 이용하여 List 객체를 인덱스: 값의 형태로 출력하기</h3>
+<%--varStatus="변수명"=> 반복중인 요소의 상태 정보저장
+	변수명.index : 0부터 시작하는 첨자
+	변수명.count : 1부터 시작하는 갯수
+ --%>
+<c:forEach  var="i" items="${list}" varStatus="stat">
+	${stat.index}:${i} &nbsp;&nbsp;&nbsp;
+</c:forEach><br>
+
+<h3>forEach 태그를 이용하여 List 객체를 한줄에 2개씩 출력하기</h3>
+<c:forEach var="i" items="${list}" varStatus="stat">
+	${i} &nbsp;&nbsp;&nbsp;
+<c:if test="${stat.index%2==1}"><br></c:if>
+</c:forEach>
+
+<hr>
+<%
+	Map<String, Object> map = new HashMap<>(); //HashMap<>의 특징 순서는 제멋대로!
+	map.put("name","홍길동");						// ("key","value")
+	map.put("today",new Date());
+	map.put("age",20);
+	map.put("list",list);
+	pageContext.setAttribute("map",map);
+	
+%>
+<h3>forEach 태그를 이용하여 Map 객체 출력하기</h3>
+<%-- m: (key,value)인 객체 --%>
+<c:forEach var="m" items="${map}" varStatus="stat">
+	${stat.count}:${m.key}=${m.value}<br>
+</c:forEach>
+<h3>key의 이름으로 Map 객체 출력</h3>
+name : ${map.name}<br>
+today : ${map.today}<br>
+age : ${map.age}<br>
+list : ${map.list }<br>
+list[0] : ${map.list[0]}<br>
+<hr>
+<h3>forEach태그를 이용하여 배열 객체 출력하기</h3>
+<%
+	int[] arr = {10,20,30,40,50};
+	pageContext.setAttribute("arr",arr);
+%>
+<c:forEach var="a" items="${arr}" varStatus="stat">
+	arr[${stat.index }] = ${a}<br>
+</c:forEach>
+<h3>forEach태그를 이용하여 배열 객체 첨자로 출력하기</h3>
+<c:forEach var="i" begin="0" end ="4" varStatus="stat">
+	arr[${stat.index}] = ${arr[i]}<br>
+</c:forEach>
 </body>
 </html>
