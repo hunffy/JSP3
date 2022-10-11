@@ -21,6 +21,8 @@
 <c:set var="sum" value="${sum+i}" />
 </c:forEach><br>
 합계: ${sum} <br>
+
+
 <h3>if 태그를 이용하여 합계가 짝수인지홀수 출력하기</h3>
 <c:set var="sum1" value="${0}" /> 
 <c:forEach var="i" begin="1" end="${param.num }"> 
@@ -28,6 +30,8 @@
 	<c:set var="sum1" value="${sum1+i}" />
 	</c:if>
 </c:forEach>
+
+
 짝수의합 : ${sum1}<br>
 <h3>choose 태그를 이용하여 합계가 짝수인지홀수 출력하기</h3>
 <c:choose>
