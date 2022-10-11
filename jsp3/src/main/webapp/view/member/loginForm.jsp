@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%--/jsp2/src/main/webapp/model1/member/loginForm.jsp --%>
+    <%--/jsp3/src/main/webapp/view/member/joinForm.jsp --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,14 +22,12 @@ function inputcheck(f) {
 
 function win_open(page) {
 	let op = "width=500, height=350, left=50, top=150"
-	open(page+".jsp","",op) //idForm.jsp
+	open(page,"",op) //idForm.jsp
 	//open("idForm.jsp","윈도우이름",옵션)
 }
 </script>   
-<link rel="stylesheet" href="../../css/main.css">
-</head>
-<body>
-<form action="login.jsp" method="post" name="f"
+</head><body>
+<form action="login" method="post" name="f"
 		onsubmit="return inputcheck(this)"> 
 <table><caption>로그인</caption>
 <tr><th>아이디</th><td><input type="text" name="id"></td></tr>
@@ -38,7 +36,7 @@ function win_open(page) {
 	<input type="submit" value="로그인">
 	
 	<input type="button" value="회원가입"
-		onclick="location.href='joinForm.jsp'">
+		onclick="location.href='joinForm'">
 	<input type="button" value="아이디찾기"
 		onclick="win_open('idForm')">
 	<input type="button" value="비밀번호찾기"

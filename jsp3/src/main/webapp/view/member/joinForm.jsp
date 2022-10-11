@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%--/jsp3/src/main/webapp/view/member/joinForm.jsp --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@ function win_open() {
 </script> 
 </head>
 <body>
-<form action="join.jsp" method="post" name='f'
+<form action="join" method="post" name='f'
 	onsubmit="return check(this)"> <%--this : form  check(this) 아이디 비번 이름 등록됐는지 확인--%>
 	
 	<%-- type="hidden" : 값은존재하지만 화면에는 나타나지않음. 파라미터값으로 서버에 전달 --%> 
