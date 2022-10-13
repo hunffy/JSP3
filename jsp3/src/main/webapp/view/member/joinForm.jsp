@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="model.Member"%>
+<%@page import="model.MemberDao"%>
     <%--/jsp3/src/main/webapp/view/member/joinForm.jsp --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="../css/main.css">
 <script type="text/javascript">
 function check(f) {
 	if(f.id.value == ''){
@@ -28,7 +30,16 @@ function check(f) {
 
 function win_open() {
 	let op = "width=300, height=300, left=50, top=150"
-	open("memberimg.jsp","",op)
+	open("memberimg","",op)
+}
+function idchk(){
+	if(document.f.id.value ==''){ //아이디를 입력하지않은경우 
+		alert("아이디를 입력하세요")
+		f.id.focus()
+	}else{ //아이디를 입력한경우 새창을오픈 idchk(MemberController로 이동)
+		let op = "width=500, height=200, left=50, top=150"
+		open("idchk?id="+document.f.id.value, "",op)
+	}
 }
 </script> 
 </head>
@@ -45,7 +56,8 @@ function win_open() {
 		<font size="1"><a href="javascript:win_open()">사진등록</a>
 		</font></td>
 	<td>아이디</td>
-		<td><input type="text" name="id"></td>
+		<td><input type="text" name="id" style="width:70%;">
+		<input type="button" value="중복검색" onclick="idchk()"></td>
 	</tr>
 	<tr><td>비밀번호</td>
   <td><input type="password" name="pass"></td></tr>

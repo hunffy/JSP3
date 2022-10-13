@@ -52,7 +52,7 @@ public class MemberDao {
 	}
 	
 	
-	public Member selectOne(String id) { //String id ->입력한 id값
+	public Member selectOne(String id) { //String id ->입력한 id값  selectOne() : ()안의 입력값(ex:id)을 DB에서 조회해서 그에맞는 정보들을 가져온다.  
 		Connection conn = DBConnection.getConnection(); //DB와 연결
 		String sql = "select * From member where id= ?"; //멤버테이블에서 모든 컬럼중 id값 조회
 		PreparedStatement pstmt = null;

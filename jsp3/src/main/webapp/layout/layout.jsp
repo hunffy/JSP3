@@ -30,7 +30,7 @@
    <a href="${path}/member/joinForm">회원가입</a>
 </c:if>
 <c:if test="${!empty sessionScope.login }">
-   ${login}님. <a href="${path}/model1/member/logout">로그아웃</a>
+   ${login}님. <a href="${path}/member/logout">로그아웃</a>
 </c:if>
 </td></tr>
 <tr><td width="15%" valign="top">

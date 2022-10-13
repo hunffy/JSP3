@@ -13,11 +13,11 @@
 <script type="text/javascript">
 function win_passchg() {
 	let op = "width=500, height=250, left=50, top=150"
-	open("passwordForm.jsp","",op)
+	open("passwordForm","",op)
 }
 function win_upload() {
 	let op = "width=300, height=300, left=50, top=150"
-	open("memberimg.jsp","",op)
+	open("memberimg","",op)
 }
 </script>
 </head>

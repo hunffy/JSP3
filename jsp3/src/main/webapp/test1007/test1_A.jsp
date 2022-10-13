@@ -12,19 +12,21 @@
   숫자:<input type="text" name="num" value="${param.num }">
    <input type="submit" value="숫자까지의 합 구하기">  
 </form>
+
+
 <c:forEach var="i" begin="1" end="${param.num}">
-  <c:set var="sum" value="${sum + i}" />
+<c:set var="sum" value="${sum+i}"/>
 </c:forEach>
-합계 : <c:out value="${sum}" /><br>
-합계 : ${sum}<br>
+합계:${sum}
+
 <h3>if 태그를 이용하여 합계가 짝수인지홀수 출력하기</h3>
-<c:if test="${sum % 2 == 0}">${sum}은 짝수 입니다.<br></c:if>
-<c:if test="${sum % 2 == 1}">${sum}은 홀수 입니다.<br></c:if>
+<c:if test="${sum%2==0}">${sum}은 짝수입니다</c:if>
+<c:if test="${sum%2==1}">${sum}은 홀수입니다</c:if>
 
 <h3>choose 태그를 이용하여 합계가 짝수인지홀수 출력하기</h3>
 <c:choose>
-  <c:when test="${sum % 2 == 0}">${sum}은 짝수 입니다.<br></c:when>
-  <c:otherwise>${sum}은 홀수 입니다.<br></c:otherwise>  
+	<c:when test="${sum%2==0}">${sum}은 짝수입니다</c:when>
+	<c:otherwise>${sum}은 홀수입니다</c:otherwise>
 </c:choose>
 </body>
 </html>
