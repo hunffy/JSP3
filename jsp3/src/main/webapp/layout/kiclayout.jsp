@@ -37,13 +37,21 @@
 
 		<!-- Links -->
 		<ul class="navbar-nav ">
-			<li class="nav-item">
-			<a class="nav-link" 
+		  <c:if test="${empty sessionScope.login }">
+			<li class="nav-item"><a class="nav-link" 
 				href="${path}/member/joinForm">회원가입</a></li>
-			<li class="nav-item">
-			<a class="nav-link" 
+			<li class="nav-item"><a class="nav-link" 
 				href="${path}/member/loginForm">로그인</a></li>
-
+		 </c:if>
+		 
+		 <c:if test="${!empty sessionScope.login }">
+			<li class="nav-item"><a class="nav-link" 
+				href="${path}/member/main">${sessionScope.login}님</a></li>
+			<li class="nav-item"><a class="nav-link" 
+				href="${path}/member/logout">로그아웃</a></li>
+		 </c:if>
+		 
+		 
 			<!-- Dropdown -->
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"

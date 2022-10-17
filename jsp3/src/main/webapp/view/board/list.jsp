@@ -34,17 +34,25 @@
 					<td>${boardnum}</td>
 					<c:set var="boardnum" value="${boardnum -1}"/>
 					<td>
-					 <a href="info?num=${b.num}">${b.subject}</a></td>
+					<c:if test="${b.grplevel > 0}">
+					<img src="../imgage/level.gif" 
+						width="${20*(b.grplevel-1)}">
+					<img src="../image/re.gif">
+					</c:if>
+				<a href="info?num=${b.num}">${b.subject}</a>
+				</td> <%--게시글제목 클릭할때 실행 --%>
 					<td>${b.writer}</td>
 					<td>${b.regdate}</td>
 					<td><a href="../upload/${b.file1}">${b.file1}</a></td>
-					<td>${b.readcnt}</td>
+					<td>${b.readcnt}</td>  <%--조회수 --%>
 				</tr>
 			</c:forEach>
 			</tbody>
 		</table>
+		
+<%--공지사항일 경우 관리자만 게시글입력 --%>
 <c:if
-	test="${(param.boardid != 1) || (sessionScope.login == 'admin') }">
+	test="${(param.boardid != 1) || (sessionScope.login == 'admin') }">  
 		<p align="right"><a href="writeForm">게시글입력</a></p>
 </c:if>
 
@@ -54,8 +62,9 @@
    <li class="page-item 
   	 <c:if test='${startPage <= bottomLine}'>disabled</c:if>">
    <a class="page-link" href="list?pageNum=${startPage-bottomLine}">
-   Previous</a></li>
+   Previous</a></li>  <%-- 페이지 넘기는부분  --%>
    
+  
    <c:forEach var="i" begin="${startPage}" end="${endPage}">
   <li class="page-item <c:if test='${i==pageInt}'> active</c:if>">
   	<a class="page-link" href="list?pageNum=${i}">${i}</a>
